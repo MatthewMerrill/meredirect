@@ -28,14 +28,26 @@ app.use('/', routes);
 app.use('/users', users);
 
 app.get('/:link', function(req, res){
-  res.redirect(fs.readFileSync('links/' + req.params.link));
+  try {
+    fs.exists('links/'+req.params.link, function(exists){
+      if (exists)
+        res.redirect(fs.readFileSync('links/' + req.params.link));
+      else if (req.params.link == '404')
+        res.sendFile("public/404.html", { 'root':'./'});
+      else
+        res.redirect("./404");
+    })
+  } catch (err) {
+    // Oh well lol
+  }
 })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  /*var err = new Error('Not Found');
   err.status = 404;
-  next(err);
+  next(err);*/
+  res.redirect("./404");
 });
 
 // error handlers
