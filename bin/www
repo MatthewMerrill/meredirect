@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 
+console.log('\n\n~~~~~~~~~~\n'+
+'    meredirect  Copyright (C) 2016  Matthew Merrill\n'+
+'    This program comes with ABSOLUTELY NO WARRANTY;\n'+
+'    This is free software, and you are welcome to redistribute it\n'+
+'    under certain conditions; Open `LICENSE\' file for details.\n~~~~~~~~~~\n\n');
+
 /**
  * Module dependencies.
  */
