@@ -1,0 +1,18 @@
+<div ng-controller="View1Ctrl">
+  <p>/{{form.key}}/ --> Redirects To --> {{form.value}}</p>
+
+  <form ng-submit="submit()">
+    <label for="ikey">Key:</label>
+    <input id="ikey" type="text" ng-model="form.key" required>
+    <br>
+    <label for="ikey">Value:</label>
+    <input id="ival" type="text" pattern="https?://([^s/]/?)+" ng-model="form.value" required>
+    <br>
+    <label for="ipw">Password:</label>
+    <input id="ipw" type="text" ng-model="form.pw" required>
+    <br>
+    <button type="submit">Submit</button>
+    <button ng-click="delete(form.key)">Delete</button>
+  </form>
+
+</div>
